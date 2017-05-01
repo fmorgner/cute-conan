@@ -8,7 +8,7 @@ USER = os.getenv("CONAN_USERNAME", "fmorgner")
 
 class CuteTestConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
-    requires = "CUTE/2.1.0@%s/%s" % (USER, CHAN)
+    requires = "CUTE/2.2.0@%s/%s" % (USER, CHAN)
     generators = "cmake"
 
     def build(self):
