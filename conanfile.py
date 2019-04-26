@@ -1,23 +1,37 @@
+# pylint: disable=missing-docstring
+
+import os
 from conans import ConanFile
 
 
 class CUTEConan(ConanFile):
+    default_user = 'fmorgner'
+    default_channel = 'stable'
+    description = '''CUTE - C++ Unit Testing Easier'''
+    homepage = 'https://cute-test.com'
+    license = 'MIT'
     name = 'CUTE'
-    version = '2.2.0'
-    description = """CUTE - C++ Unit Testing Easier"""
-    url = 'https://github.com/fmorgner/cute-conan.git'
-    license = 'LGPL 3'
+    scm = {
+        'type': 'git',
+        'subfolder': 'CUTE',
+        'url':  'https://github.com/PeterSommerlad/CUTE.git',
+        'revision': 'v2.2.1',
+    }
     settings = None
-
-    sourceUrl = 'https://github.com/PeterSommerlad/CUTE.git'
-    commitHash = '2d1944fa73d9ce16b237068d1289fc7d9d68fbf4'
-
-    def source(self):
-        self.run('git clone ' + self.sourceUrl)
-        self.run('cd CUTE && git checkout ' + self.commitHash)
+    topics = (
+        'framework',
+        'test',
+        'testing',
+        'unit-testing',
+    )
+    url = 'https://github.com/fmorgner/cute-conan.git'
+    version = '2.2.1'
 
     def build(self):
         pass
 
     def package(self):
         self.copy('*.h', src='CUTE/cute', dst='include/cute')
+        path = os.path.join(self.package_folder, 'include', 'cute')
+        for file in os.listdir(path):
+            os.chmod(os.path.join(path, file), 0o664)
