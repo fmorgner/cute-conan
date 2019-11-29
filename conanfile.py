@@ -11,11 +11,12 @@ class CUTEConan(ConanFile):
     homepage = 'https://cute-test.com'
     license = 'MIT'
     name = 'CUTE'
+    version = '2.2.3'
     scm = {
         'type': 'git',
         'subfolder': 'CUTE',
         'url':  'https://github.com/PeterSommerlad/CUTE.git',
-        'revision': 'v2.2.1',
+        'revision': 'v%s' % version,
     }
     settings = None
     topics = (
@@ -25,7 +26,6 @@ class CUTEConan(ConanFile):
         'unit-testing',
     )
     url = 'https://github.com/fmorgner/cute-conan.git'
-    version = '2.2.1'
 
     def build(self):
         pass
