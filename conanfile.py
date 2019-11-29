@@ -11,7 +11,7 @@ class CUTEConan(ConanFile):
     homepage = 'https://cute-test.com'
     license = 'MIT'
     name = 'CUTE'
-    version = '2.2.3'
+    version = '2.2.5'
     scm = {
         'type': 'git',
         'subfolder': 'CUTE',
